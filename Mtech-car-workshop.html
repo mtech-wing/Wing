@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTECH LUBRICANT & AUTOPARTS | 4WD Dyno & Performance Tuning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#FBBF24',
+                            dark: '#111827',
+                            gray: '#1F2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth transition for modals */
+        .modal {
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+        body.modal-active {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-100 font-sans antialiased">
+
+    <header class="bg-brand-gray border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="Mtech logo.jpg" alt="MTECH LUBRICANT & AUTOPARTS" class="h-12 w-auto object-contain rounded shadow-md border border-gray-700" onerror="this.onerror=null; this.outerHTML='<i class=\'fa-solid fa-oil-can text-brand-yellow text-2xl\'></i><span class=\'text-xl font-extrabold text-white ml-2\'>MTECH</span>';">
+                <span class="text-xl font-extrabold tracking-wider text-white hidden sm:inline">LUBRICANT & AUTOPARTS</span>
+            </div>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#services" class="hover:text-brand-yellow transition">Services & Parts</a>
+                <a href="#gallery" class="hover:text-brand-yellow transition">Gallery</a>
+                <a href="#why-choose-us" class="hover:text-brand-yellow transition">Why Us</a>
+                <a href="#contact" class="hover:text-brand-yellow transition">Location & Contact</a>
+            </div>
+            <a href="tel:+60177542272" class="bg-brand-yellow text-brand-dark px-4 py-2 rounded font-bold text-sm hover:bg-yellow-500 transition">
+                <i class="fa-solid fa-phone mr-1"></i> Call Now
+            </a>
+        </div>
+    </header>
+
+    <section class="relative bg-gradient-to-r from-black to-transparent py-20 md:py-32 px-4 overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&q=80&w=1200');"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto">
+            <span class="text-brand-yellow font-bold uppercase tracking-widest text-sm bg-yellow-400/10 px-3 py-1 rounded-full">Premium Performance & 4WD Dyno Testing</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-4 leading-tight">
+                MTECH <br><span class="text-brand-yellow">LUBRICANT & AUTOPARTS</span>
+            </h1>
+            <p class="text-gray-300 mt-6 text-lg max-w-xl">
+                Unleash your vehicle's true potential. From precision 4WD Dyno tuning and ECU remapping to high-performance lubricants and upgrades.
+            </p>
+            
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 max-w-md">
+                <a href="https://wa.me/60177542272" target="_blank" class="flex-1 flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition text-center">
+                    <i class="fa-brands fa-whatsapp text-xl mr-2"></i> WhatsApp Ah Wing
+                </a>
+                <a href="tel:+60177542272" class="flex-1 flex items-center justify-center bg-brand-yellow hover:bg-yellow-500 text-brand-dark font-bold py-3 px-6 rounded-lg shadow-lg transition text-center">
+                    <i class="fa-solid fa-phone mr-2"></i> Call Shop
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-brand-gray px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">Our Services & Products</h2>
+                <div class="h-1 w-20 bg-brand-yellow mx-auto mt-4 rounded"></div>
+                <p class="text-gray-400 mt-4">High-performance enhancements and reliable maintenance items for your ride.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-brand-dark p-6 rounded-lg border border-gray-800 hover:border-brand-yellow transition flex flex-col justify-between">
+                    <div>
+                        <div class="text-brand-yellow text-3xl mb-4"><i class="fa-solid fa-oil-can"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-2">Premium Lubricants</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">High-grade engine oils, gear oils, and racing fluids designed to withstand intense heat and pressure.</p>
+                    </div>
+                </div>
+
+                <div onclick="toggleModal('diagnostics-modal')" class="bg-brand-dark p-6 rounded-lg border border-gray-800 hover:border-brand-yellow hover:scale-[1.02] transition-all duration-300 cursor-pointer relative group flex flex-col justify-between">
+                    <div>
+                        <div class="text-brand-yellow text-3xl mb-4 flex justify-between items-center">
+                            <i class="fa-solid fa-computer"></i>
+                            <span class="text-[10px] text-brand-yellow bg-yellow-400/10 px-2 py-1 rounded font-semibold group-hover:bg-brand-yellow group-hover:text-brand-dark transition-all">View</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Diagnostics</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">OBD-II faults, sensors, electrical tracking, and advanced health checks before tuning updates.</p>
+                    </div>
+                    <span class="text-brand-yellow text-xs font-semibold underline mt-4 block">See menu &rarr;</span>
+                </div>
+
+                <div onclick="toggleModal('maintenance-modal')" class="bg-brand-dark p-6 rounded-lg border border-gray-800 hover:border-brand-yellow hover:scale-[1.02] transition-all duration-300 cursor-pointer relative group flex flex-col justify-between">
+                    <div>
+                        <div class="text-brand-yellow text-3xl mb-4 flex justify-between items-center">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            <span class="text-[10px] text-brand-yellow bg-yellow-400/10 px-2 py-1 rounded font-semibold group-hover:bg-brand-yellow group-hover:text-brand-dark transition-all">View</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Maintenance</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Brake pad upgrades, heavy-duty suspension tuning, and complete structural vehicle overhauls.</p>
+                    </div>
+                    <span class="text-brand-yellow text-xs font-semibold underline mt-4 block">See details &rarr;</span>
+                </div>
+
+                <div onclick="toggleModal('performance-modal')" class="bg-brand-dark p-6 rounded-lg border border-brand-yellow/50 border-2 hover:border-brand-yellow hover:scale-[1.02] transition-all duration-300 cursor-pointer relative group flex flex-col justify-between bg-gradient-to-b from-brand-dark to-yellow-950/20">
+                    <div>
+                        <div class="text-brand-yellow text-3xl mb-4 flex justify-between items-center">
+                            <i class="fa-solid fa-gauge-high"></i>
+                            <span class="text-[10px] text-brand-dark bg-brand-yellow px-2 py-1 rounded font-bold uppercase animate-pulse">Hot</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-yellow transition-colors">Performance & Dyno</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">In-house 4WD Dyno machine testing, software ECU remapping, stage upgrades, and horsepower readouts.</p>
+                    </div>
+                    <span class="text-brand-yellow text-xs font-semibold underline mt-4 block">See tuning options &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="diagnostics-modal" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none modal transition-all duration-300">
+        <div onclick="toggleModal('diagnostics-modal')" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative bg-brand-gray w-full max-w-lg mx-4 p-6 md:p-8 rounded-xl border border-gray-700 shadow-2xl z-10">
+            <button onclick="toggleModal('diagnostics-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-4">
+                <i class="fa-solid fa-computer text-brand-yellow text-4xl mb-2"></i>
+                <h3 class="text-2xl font-bold text-white">Diagnostics & Troubleshooting</h3>
+                <p class="text-xs text-gray-400 mt-1">Accurate, high-tech vehicle health checks by MTECH</p>
+            </div>
+
+            <div class="mb-5 rounded-lg overflow-hidden border border-gray-800 h-48 shadow-md bg-black">
+                <img src="ECU Remap.jpeg" alt="ECU Bench Tuning" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&q=80&w=600';">
+            </div>
+
+            <div class="space-y-3 max-h-[220px] overflow-y-auto pr-2">
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-microchip text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Computerized Engine & OBD-II Scans</h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Reading engine fault codes to pinpoint check engine lights, sensor failures, and performance drops.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-car-battery text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Electrical & Battery Diagnostics</h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Testing battery charging, alternator output, and finding short-circuits in vehicle wiring systems.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-snowflake text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Air-Conditioning Performance Diagnostics</h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Testing compressor clutch action, system pressures, and UV dye leak testing.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-shield-halved text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">ABS & Safety Systems</h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Troubleshooting brake warning signs, speed sensor faults, and electronic traction controls.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-gauge-high text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Undercarriage & Noise Diagnostics</h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Tracking down wheel bearing hums, suspension knocks, and driveshaft vibrations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="https://wa.me/60177542272?text=Hi%20Ah%20Wing,%20I'd%20like%20to%20book%20a%20Diagnostic%20Check%20for%20my%20car." target="_blank" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded text-center text-sm flex items-center justify-center">
+                    <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Diagnostics Inquiry
+                </a>
+                <button onclick="toggleModal('diagnostics-modal')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-white py-3 px-4 rounded text-center text-sm font-semibold transition">
+                    Close Details
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="maintenance-modal" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none modal transition-all duration-300">
+        <div onclick="toggleModal('maintenance-modal')" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative bg-brand-gray w-full max-w-lg mx-4 p-6 md:p-8 rounded-xl border border-gray-700 shadow-2xl z-10">
+            <button onclick="toggleModal('maintenance-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-4">
+                <i class="fa-solid fa-screwdriver-wrench text-brand-yellow text-4xl mb-2"></i>
+                <h3 class="text-2xl font-bold text-white">Expert Maintenance Menu</h3>
+                <p class="text-xs text-gray-400 mt-1">Professional workshop services handled by Ah Wing & Team</p>
+            </div>
+
+            <div class="mb-5 rounded-lg overflow-hidden border border-gray-800 h-48 shadow-md bg-black">
+                <img src="Engine restore and maintance.jpeg" alt="Engine Restore and Maintenance" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&q=80&w=600';">
+            </div>
+
+            <div class="space-y-3 max-h-[200px] overflow-y-auto pr-2">
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-check text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Full Engine Tuning & Service</h4>
+                        <p class="text-gray-400 text-xs">Complete fluid level checks, spark plug updates, throttle body cleaning, and filter replacements.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-check text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Brake System Servicing</h4>
+                        <p class="text-gray-400 text-xs">Brake pads replacement, disk rotor skimming/replacements, and brake fluid flushing for reliable stopping power.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-check text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Suspension & Undercarriage Tuning</h4>
+                        <p class="text-gray-400 text-xs">Shock absorbers, lower arm bushing, stabilizer links, and steering rack repairs to eliminate handling noises.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="https://wa.me/60177542272?text=Hi%20Ah%20Wing,%20I'd%20like%20to%20book%20a%20Maintenance%20Service%20for%20my%20car." target="_blank" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded text-center text-sm flex items-center justify-center">
+                    <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Book via WhatsApp
+                </a>
+                <button onclick="toggleModal('maintenance-modal')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-white py-3 px-4 rounded text-center text-sm font-semibold transition">
+                    Close Details
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="performance-modal" class="fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none modal transition-all duration-300">
+        <div onclick="toggleModal('performance-modal')" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative bg-brand-gray w-full max-w-lg mx-4 p-6 md:p-8 rounded-xl border border-gray-700 shadow-2xl z-10">
+            <button onclick="toggleModal('performance-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-4">
+                <i class="fa-solid fa-gauge-high text-brand-yellow text-4xl mb-2"></i>
+                <h3 class="text-2xl font-bold text-white">Performance Upgrades & Dyno</h3>
+                <p class="text-xs text-gray-400 mt-1">Unleash maximum horsepower & torque safely</p>
+            </div>
+
+            <div class="mb-5 rounded-lg overflow-hidden border border-gray-800 h-48 shadow-lg bg-black">
+                <img src="ECU tuning.jpeg" alt="ECU Tuning Process" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600';">
+            </div>
+
+            <div class="space-y-3 max-h-[220px] overflow-y-auto pr-2">
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-circle-nodes text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">In-House 4WD Dyno Machine Testing</h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Accurate power runs for both 2WD and 4WD (AWD) vehicles. Get exact horsepower (HP) and torque graphics printed out.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-bolt text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Custom ECU Remapping (Stage 1 / 2 / 3)</h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Safely optimized software parameters for instant throttle response, increased power bands, and removed speed delimiters.</p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-brand-dark p-3 rounded border border-gray-800">
+                    <i class="fa-solid fa-turbine text-brand-yellow mt-1 mr-3"></i>
+                    <div>
+                        <h4 class="font-bold text-white text-sm">Performance Hardware Upgrades</h4>
+                        <p class="text-gray-400 text-xs mt-0.5">Installation of professional intake kits, upgraded exhaust downpipes, intercoolers, and high-performance fuel setups.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="https://wa.me/60177542272?text=Hi%20Ah%20Wing,%20I%20am%20interested%20in%20booking%20a%204WD%20Dyno%20Run%20/%20Performance%20Upgrade%20for%20my%20car." target="_blank" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded text-center text-sm flex items-center justify-center">
+                    <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Book Dyno Session
+                </a>
+                <button onclick="toggleModal('performance-modal')" class="flex-1 bg-gray-800 hover:bg-gray-700 text-white py-3 px-4 rounded text-center text-sm font-semibold transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section id="gallery" class="py-20 bg-brand-dark px-4 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">Our Workshop Gallery</h2>
+                <div class="h-1 w-20 bg-brand-yellow mx-auto mt-4 rounded"></div>
+                <p class="text-gray-400 mt-4">Take a look inside MTECH – Dyno tuning sessions, high-tech diagnostics, and project cars.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div onclick="toggleModal('maintenance-modal')" class="group relative overflow-hidden rounded-lg border border-gray-800 bg-brand-gray aspect-[4/3] cursor-pointer">
+                    <img src="Engine restore and maintance.jpeg" alt="Engine Restore and Maintenance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&q=80&w=600';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-xs font-bold text-brand-yellow uppercase tracking-wider">Maintenance</span>
+                        <h4 class="text-white font-bold text-sm mt-0.5">Engine Crane Lift & Rebuild</h4>
+                    </div>
+                </div>
+
+                <div onclick="toggleModal('maintenance-modal')" class="group relative overflow-hidden rounded-lg border border-gray-800 bg-brand-gray aspect-[4/3] cursor-pointer">
+                    <img src="Engine full restore service.jpeg" alt="Engine Full Restore Service" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&q=80&w=600';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-xs font-bold text-brand-yellow uppercase tracking-wider">Restore</span>
+                        <h4 class="text-white font-bold text-sm mt-0.5">Chassis Prep & Red Engine Cover</h4>
+                    </div>
+                </div>
+
+                <div onclick="toggleModal('diagnostics-modal')" class="group relative overflow-hidden rounded-lg border border-gray-800 bg-brand-gray aspect-[4/3] cursor-pointer">
+                    <img src="Vehicle health check.jpeg" alt="Vehicle Health Check" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-xs font-bold text-brand-yellow uppercase tracking-wider">Diagnostics</span>
+                        <h4 class="text-white font-bold text-sm mt-0.5">Range Rover Engine Bay Check</h4>
+                    </div>
+                </div>
+
+                <div onclick="toggleModal('performance-modal')" class="group relative overflow-hidden rounded-lg border border-gray-800 bg-brand-gray aspect-[4/3] cursor-pointer">
+                    <img src="ECU Tunning 2.jpeg" alt="Writing Int Flash software" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&q=80&w=600';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 transition-opacity duration-300"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-xs font-bold text-brand-yellow uppercase tracking-wider">Tuning Flash</span>
+                        <h4 class="text-white font-bold text-sm mt-0.5">Bench Software Interface</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-choose-us" class="py-20 px-4 bg-brand-gray">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1">
+                    <h2 class="text-3xl font-bold text-white mb-6">Transparent Services, Dependable Parts</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        At MTECH, we combine high-quality lubricants and genuine autoparts with skilled craftsmanship. We diagnose your vehicle thoroughly and provide transparent pricing before carrying out any repairs.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-brand-yellow mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-white">Guaranteed Genuine Products</h4>
+                                <p class="text-gray-400 text-sm">We only stock trusted lubricant brands and authorized spare parts to ensure safety and durability.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check text-brand-yellow mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-white">Expert Diagnostics by Ah Wing</h4>
+                                <p class="text-gray-400 text-sm">Years of practical mechanical experience handling both Asian and Continental vehicle models.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1 w-full bg-brand-dark p-8 rounded-xl border border-gray-800">
+                    <h3 class="text-2xl font-bold text-white mb-6">Get a Fast Quote or Book a Service</h3>
+                    <p class="text-gray-300 mb-6 text-sm">Contact our team directly. Tap either line below to speak with us or check part availability.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 bg-brand-gray rounded-lg border border-gray-700">
+                            <span class="text-xs font-semibold text-brand-yellow uppercase tracking-wider block mb-1">Primary Line</span>
+                            <h4 class="text-lg font-bold text-white">Ah Wing (Service, Dyno & Tuning)</h4>
+                            <div class="flex gap-2 mt-3">
+                                <a href="tel:+60177542272" class="flex-1 bg-brand-yellow text-brand-dark font-bold py-2 rounded text-center text-sm hover:bg-yellow-500 transition">
+                                    <i class="fa-solid fa-phone mr-1"></i> Call Now
+                                </a>
+                                <a href="https://wa.me/60177542272" target="_blank" class="flex-1 bg-green-600 text-white font-bold py-2 rounded text-center text-sm hover:bg-green-700 transition">
+                                    <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-brand-gray rounded-lg border border-gray-700">
+                            <span class="text-xs font-semibold text-brand-yellow uppercase tracking-wider block mb-1">Alternative Line</span>
+                            <h4 class="text-lg font-bold text-white">Parts & General Inquiries</h4>
+                            <div class="flex gap-2 mt-3">
+                                <a href="tel:+60174931433" class="flex-1 bg-brand-yellow text-brand-dark font-bold py-2 rounded text-center text-sm hover:bg-yellow-500 transition">
+                                    <i class="fa-solid fa-phone mr-1"></i> Call Now
+                                </a>
+                                <a href="https://wa.me/60174931433" target="_blank" class="flex-1 bg-green-600 text-white font-bold py-2 rounded text-center text-sm hover:bg-green-700 transition">
+                                    <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-brand-gray px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Find Our Shop</h2>
+                    <p class="text-gray-300 mb-8">Drive in to MTECH for professional tuning, diagnostics or parts consultation.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-brand-yellow text-xl mr-4 mt-1"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Our Address</h4>
+                                <p class="text-gray-400 text-sm mt-1">Johor Bahru, Johor, Malaysia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-brand-yellow text-xl mr-4 mt-1"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white">Operating Hours</h4>
+                                <p class="text-gray-400 text-sm mt-1">Monday – Saturday: 9:00 AM – 6:30 PM<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full h-80 bg-brand-dark rounded-xl border border-gray-800 flex flex-col justify-center items-center p-6 text-center">
+                    <i class="fa-solid fa-map-location-dot text-brand-yellow text-4xl mb-4"></i>
+                    <h3 class="font-bold text-white text-lg">Interactive Map Integration</h3>
+                    <p class="text-gray-400 text-sm mt-2 max-w-sm">When hosting your domain, you can easily embed your Google Map iframe here for customer directions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark border-t border-gray-850 py-8 px-4 text-center text-sm text-gray-500">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 MTECH LUBRICANT & AUTOPARTS. All Rights Reserved.</p>
+            <div class="flex space-x-4">
+                <a href="tel:+60177542272" class="hover:text-brand-yellow transition">Ah Wing</a>
+                <a href="tel:+60174931433" class="hover:text-brand-yellow transition">Parts Inquiry</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-brand-gray border-t border-gray-800 px-4 py-3 flex gap-3 z-50">
+        <a href="https://wa.me/60177542272" target="_blank" class="flex-1 bg-green-600 text-white font-bold py-3 rounded-lg text-center text-sm flex items-center justify-center">
+            <i class="fa-brands fa-whatsapp text-lg mr-2"></i> WhatsApp Ah Wing
+        </a>
+        <a href="tel:+60174931433" class="flex-1 bg-brand-yellow text-brand-dark font-bold py-3 rounded-lg text-center text-sm flex items-center justify-center">
+            <i class="fa-solid fa-phone text-lg mr-2"></i> Call Parts Line
+        </a>
+    </div>
+
+    <script>
+        function toggleModal(modalId) {
+            const body = document.querySelector('body');
+            const modal = document.getElementById(modalId);
+            
+            // Toggle active state classes
+            modal.classList.toggle('opacity-0');
+            modal.classList.toggle('pointer-events-none');
+            body.classList.toggle('modal-active');
+        }
+
+        // Close any active modal when pressing 'Escape' key
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            var isEscape = false;
+            if ("key" in evt) {
+                isEscape = (evt.key === "Escape" || evt.key === "Esc");
+            } else {
+                isEscape = (evt.keyCode === 27);
+            }
+            if (isEscape && document.body.classList.contains('modal-active')) {
+                const activeModals = ['diagnostics-modal', 'maintenance-modal', 'performance-modal'];
+                activeModals.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el && !el.classList.contains('opacity-0')) {
+                        toggleModal(id);
+                    }
+                });
+            }
+        };
+    </script>
+
+</body>
+</html>
